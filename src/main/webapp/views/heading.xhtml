@@ -8,7 +8,7 @@
 	<h:form>
 	  <div id="LOGIN">
 	    <c:choose>
-	      <c:when test="#{userBean.isLogged()}" render="false">
+	      <c:when test="#{userBean.isLogged()}">
 	      	#{msg.greetingUser} #{userBean.loggedUser}, 
 	      	<h:commandLink value="#{msg.logout}" action="#{userBean.logout()}"/>
 	      </c:when>

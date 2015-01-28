@@ -56,10 +56,14 @@ public class CalendarManager {
 		List<JEvent> events = foundCalendar.getEventList();
 		while(i < events.size() && event.getId() != events.get(i).getId()) i++;
 		
-		if(i < events.size()) events.remove(i);//usuwa zdarzenie na pozycji i jesli miesci sie w rozmiarze
-		
-		foundCalendar.setEventList(events);
-		em.merge(foundCalendar);
+		if(i < events.size()) {
+			JEvent eventToRemove = events.get(i);
+			events.remove(i);//usuwa zdarzenie na pozycji i jesli miesci sie w rozmiarze
+			
+			foundCalendar.setEventList(events);
+			em.merge(foundCalendar);
+			em.remove(eventToRemove);
+		}
 	}
 
 	public void editEvent(JEvent event, JCalendar calendar) {

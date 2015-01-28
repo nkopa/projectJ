@@ -14,7 +14,7 @@
 				
 				<div class="row">
 					<label for="date"><h:outputText value="#{msg.formEventDate} " /></label>
-					<rich:calendar value="#{event.date}" id="date" locale="#{msg.localeData}"
+					<rich:calendar value="#{event.date}" id="date"
 				        popup="true" datePattern="d.MM.yyyy"
 				        showApplyButton="true" cellWidth="24px" cellHeight="22px" style="width:200px"
 				      	disabled="false" validator="#{calendarBean.dateCheck}" required="#{true}">
