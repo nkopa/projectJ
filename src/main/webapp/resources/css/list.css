@@ -17,6 +17,13 @@ input[type="submit"] {
 	width: auto;
 }
 
-.nameColumn {
+.scrollPanel {
+	height: 100px;
+	font-size: 18px;
+	font-family: "Georgia", "Times New Roman";
+	overflow: auto;
+}
+
+.scrollPanel .nameColumn {
 	width: 250px;
 }

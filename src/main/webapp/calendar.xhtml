@@ -3,6 +3,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
 	template="/templates/default.xhtml">
 	<ui:define name="content">
 	<h:outputStylesheet library="css" name="list.css" target="body" />
@@ -26,33 +28,35 @@
 		</h:form>
 		</p>
 		
-		<h:form id="EVENTS">
-		<h:dataTable value="#{calendarBean.events}" var="item" columnClasses="dateColumn,nameColumn,detailsColumn,deleteColumn">
-        <f:facet name="header"></f:facet>
-      
-        <h:column>
-          	<f:facet name="header">#{msg.calendarDate}</f:facet>
-	        <h:outputText value="#{item.date}">
-				<f:convertDateTime type="date" pattern="d-MM-yyyy"/>
-			</h:outputText>
-        </h:column>
-      
-        <h:column>
-          	<f:facet name="header">#{msg.calendarName}</f:facet>
-          	<h:outputText value="#{item.name}"/>
-        </h:column>
-      
-      	<h:column>
-          	<f:facet name="header"></f:facet>
-          	<h:commandLink value="#{msg.calendarShowEvent}" action="#{calendarBean.showEvent}"/>
-        </h:column>
-      
-        <h:column>
-          	<f:facet name="header"></f:facet>
-          	<h:commandLink value="#{msg.calendarDeleteEvent}" action="#{calendarBean.deleteEvent}"/>
-        </h:column>
-      
-       </h:dataTable>
-       </h:form>
+		<rich:panel style="width:700px;" bodyClass="scrollPanel">
+			<h:form id="EVENTS">
+			<h:dataTable value="#{calendarBean.events}" var="item" columnClasses="dateColumn,nameColumn,detailsColumn,deleteColumn">
+	        <f:facet name="header"></f:facet>
+	      
+	        <h:column>
+	          	<f:facet name="header">#{msg.calendarDate}</f:facet>
+		        <h:outputText value="#{item.date}">
+					<f:convertDateTime type="date" pattern="d-MM-yyyy"/>
+				</h:outputText>
+	        </h:column>
+	      
+	        <h:column>
+	          	<f:facet name="header">#{msg.calendarName}</f:facet>
+	          	<h:outputText value="#{item.name}"/>
+	        </h:column>
+	      
+	      	<h:column>
+	          	<f:facet name="header"></f:facet>
+	          	<h:commandLink value="#{msg.calendarShowEvent}" action="#{calendarBean.showEvent}"/>
+	        </h:column>
+	      
+	        <h:column>
+	          	<f:facet name="header"></f:facet>
+	          	<h:commandLink value="#{msg.calendarDeleteEvent}" action="#{calendarBean.deleteEvent}"/>
+	        </h:column>
+	      
+	       </h:dataTable>
+	       </h:form>
+       </rich:panel>
    	</ui:define>
 </ui:composition>
