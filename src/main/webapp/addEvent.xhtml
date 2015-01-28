@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+	<h:outputStylesheet library="css" name="event.css" target="body" />
+	
+		<h2>#{msg.addEventTitle}</h2>
+		
+		<h:form>
+			<fieldset>
+				<legend>#{msg.addEventLegend}</legend>
+				
+				<div class="row">
+					<label for="date"><h:outputText value="#{msg.formEventDate} " /></label>
+					<rich:calendar value="#{calendarBean.eventToAdd.date}" id="date"
+				        popup="true" datePattern="d.MM.yyyy"
+				        showApplyButton="true" cellWidth="24px" cellHeight="22px" style="width:200px"
+				      	disabled="false" validator="#{calendarBean.dateCheck}" required="#{true}">
+					    <f:ajax execute="@this" render="errors"/>
+			        </rich:calendar>
+				</div>
+			
+				<div class="row">
+					<label for="name"><h:outputText value="#{msg.formEventName} " /></label>
+					<h:inputText id="name" value="#{calendarBean.eventToAdd.name}" required="#{true}">
+						<f:ajax execute="@this" render="errors"/>
+					</h:inputText>
+				</div>
+			
+				<div class="row">
+					<label for="place"><h:outputText value="#{msg.formEventPlace} " /></label>
+					<h:inputText id="place" value="#{calendarBean.eventToAdd.place}" required="#{true}">
+						<f:ajax execute="@this" render="errors"/>
+					</h:inputText>
+				</div>
+			
+				<div class="row">
+					<label for="description"><h:outputText value="#{msg.formEventDescription} " /></label>
+					<h:inputTextarea id="description" value="#{calendarBean.eventToAdd.description}" >
+						<f:ajax execute="@this" render="errors"/>
+					</h:inputTextarea>
+				</div>
+
+				
+				<h:commandButton value="#{msg.addEventSubmit}" action="#{calendarBean.addEvent}" />
+			</fieldset>
+			
+			<h:panelGrid id="errors">
+				<h:messages showDetail="#{true}" showSummary="#{false}" />
+			</h:panelGrid>
+        </h:form>
+   	</ui:define>
+</ui:composition>

@@ -1,0 +1,78 @@
+html{
+	background: #9999ff;
+	font-family: 'Serif','Times New Roman';
+	font-size: 16px;
+	text-aligh: left;
+}
+
+body {
+	background: white;
+	width: 780px;
+	margin: 20px auto 20px auto;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 20px 10px grey;
+}
+
+#LOGIN {
+	displaly: block;
+	margin-right: 10px;
+}
+
+#LOGO {
+	display: block;
+	font-size: 70px;
+	font-family: "Georgia", "Times New Roman";
+	font-style:italic;
+	text-align: right;
+	paddind-right: 50px;
+}
+
+a {text-decoration: none;}
+a:link {color: gray;}
+a:visited {color: gray;}
+a:active {color: gray;}
+a:hover {color: #9999ff;}
+
+#HEADING {
+	dispaly: block;
+	margin-bottom: 30px;
+}
+
+#MENU {
+	display: block;
+	border-top: 1px solid #9999ff;
+}
+
+#MENU a {
+	font-size: 18px;
+	font-family: "Georgia", "Times New Roman";
+}
+
+#MENU ul {
+	display: block;
+	list-style: none;
+	text-align: center;
+}
+
+#MENU ul li{
+	display: block;
+	float: left;
+	padding: 5px;
+	padding-left: 30px;
+	padding-right: 30px;
+	border-right: 1px solid #9999ff;
+	text-aligne: center;
+}
+
+#MENU ul li#LAST{
+	display: block;
+	float: none;
+	border: none;
+}
+
+#CONTENT {
+	display: block;
+	margin-top: 50px;
+	padding: 10px;
+}

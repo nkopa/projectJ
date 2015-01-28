@@ -1,0 +1,39 @@
+#DESCRIPTION {
+	border: 1px #9999ff solid;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+fieldset {
+	border: 1px solid gray;
+	border-radius: 10px;
+	width: 550px;
+	margin: 30px;
+	margin-top: 50px;
+}
+
+fieldset * {
+	margin: 5px;
+}
+
+.row{
+	display: block;
+}
+
+label {
+	display: block;
+	float: left;
+	width: 170px;
+	text-align: right;
+}
+
+input{
+	width: 250px;
+	float: none;
+}
+
+input[type="submit"]{
+	width: 100px;
+	height: 25px;
+	margin-top: 20px;
+}

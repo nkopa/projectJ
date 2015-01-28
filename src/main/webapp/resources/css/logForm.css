@@ -1,0 +1,33 @@
+
+fieldset {
+	border: 1px solid gray;
+	border-radius: 10px;
+	width: 360px;
+	margin: 30px;
+	margin-top: 50px;
+}
+
+fieldset * {
+	margin: 5px;
+}
+
+.row{
+	display: block;
+}
+
+label {
+	display: block;
+	float: left;
+	width: 60px;
+}
+
+input{
+	width: 250px;
+	float: none;
+}
+
+input[type="submit"]{
+	width: 80px;
+	height: 25px;
+	margin-top: 20px;
+}

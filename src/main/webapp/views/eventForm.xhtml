@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	template="/templates/default.xhtml">
+	
+	<div class="row">
+		<h:outputText value="#{msg.addEventDate} " />
+		<rich:calendar value="#{calendarBean.eventToAdd.date}" id="date" locale="#{msg.localeData}"
+	        popup="true" datePattern="d.MM.yyyy"
+	        showApplyButton="true" cellWidth="24px" cellHeight="22px" style="width:200px"
+	      	disabled="false" required="#{true}">
+		    <f:ajax execute="@this" render="errors"/>
+        </rich:calendar>
+	</div>
+
+	<div class="row">
+		<h:outputText value="#{msg.addEventName} " />
+		<h:inputText id="name" value="#{calendarBean.eventToAdd.name}" required="#{true}">
+			<f:ajax execute="@this" render="errors"/>
+		</h:inputText>
+	</div>
+
+	<div class="row">
+		<h:outputText value="#{msg.addEventPlace} " />
+		<h:inputText id="place" value="#{calendarBean.eventToAdd.place}" required="#{true}">
+			<f:ajax execute="@this" render="errors"/>
+		</h:inputText>
+	</div>
+
+	<div class="row">
+		<h:outputText value="#{msg.addEventDescription} " />
+		<h:inputTextarea id="description" value="#{calendarBean.eventToAdd.description}" >
+			<f:ajax execute="@this" render="errors"/>
+		</h:inputTextarea>
+	</div>
+	
+</ui:composition>

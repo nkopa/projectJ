@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file is not required if you don't need any extra configuration. -->
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+      http://java.sun.com/xml/ns/javaee
+      http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+	<application>
+		<resource-bundle>
+			<base-name>pl.project.messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+
+		<message-bundle>pl.project.errormessages</message-bundle>
+
+		<locale-config>
+			<default-locale>pl</default-locale>
+			<supported-locale>pl</supported-locale>
+			<supported-locale>en</supported-locale>
+		</locale-config>
+
+	</application>
+	
+	<navigation-rule>
+		<from-view-id>/home.xhtml</from-view-id>
+		<navigation-case>
+	      <from-action>#{userBean.canSeeCalendar()}</from-action>
+	      <from-outcome>true</from-outcome>
+	      <to-view-id>/calendar.jsf?faces-redirect=true</to-view-id>
+	   </navigation-case>
+	   <navigation-case>
+	      <from-action>#{userBean.canSeeCalendar()}</from-action>
+	      <from-outcome>false</from-outcome>
+	      <to-view-id>/home.jsf</to-view-id>
+	   </navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/login.xhtml</from-view-id>
+		<navigation-case>
+	      <from-action>#{userBean.canSeeCalendar()}</from-action>
+	      <from-outcome>true</from-outcome>
+	      <to-view-id>/calendar.jsf?faces-redirect=true</to-view-id>
+	   </navigation-case>
+	   <navigation-case>
+	      <from-action>#{userBean.canSeeCalendar()}</from-action>
+	      <from-outcome>false</from-outcome>
+	      <to-view-id>/login.jsf</to-view-id>
+	   </navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/register.xhtml</from-view-id>
+		<navigation-case>
+	      <from-action>#{userBean.canSeeCalendar()}</from-action>
+	      <from-outcome>true</from-outcome>
+	      <to-view-id>/calendar.jsf?faces-redirect=true</to-view-id>
+	   </navigation-case>
+	   <navigation-case>
+	      <from-action>#{userBean.canSeeCalendar()}</from-action>
+	      <from-outcome>false</from-outcome>
+	      <to-view-id>/register.jsf</to-view-id>
+	   </navigation-case>
+	</navigation-rule>
+</faces-config>

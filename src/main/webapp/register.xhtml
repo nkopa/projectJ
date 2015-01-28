@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+	<h:outputStylesheet library="css" name="logForm.css" target="body" />
+	<h:form>
+		<h1>#{msg.registerTitle}</h1>
+		
+		<fieldset>
+			<div class="row">
+				<label for="login"><h:outputText value="#{msg.loginForm} " /></label>
+				<h:inputText id="login" value="#{userBean.user.username}" validator="#{userBean.uniqueLoginCheck}" required="#{true}">
+					<f:ajax execute="@this" render="errors"/>
+				</h:inputText>
+			</div>
+	
+			<br/>
+	
+			<div class="row">
+				<label for="password"><h:outputText value="#{msg.passwordForm} " /></label>
+				<h:inputSecret id="password" value="#{userBean.user.password}" validator="#{userBean.passwordCheck}" required="#{true}">
+					<f:ajax execute="@this" render="errors"/>
+				</h:inputSecret>
+			</div>
+			
+			<br/>
+			
+			<h:commandButton value="#{msg.registerSubmit}" action="#{userBean.register}" />
+		</fieldset>
+		
+		<h:panelGrid id="errors">
+			<h:messages showDetail="#{true}" showSummary="#{false}" />
+		</h:panelGrid>
+		
+	</h:form>
+	</ui:define>
+</ui:composition>

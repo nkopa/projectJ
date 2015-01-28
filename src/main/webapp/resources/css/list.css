@@ -1,0 +1,22 @@
+
+table td {
+	width: 130px;
+	text-align: left;
+	border-bottom: 1px dashed #9999ff;
+}
+
+table th {
+	text-align: left;
+}
+
+input {
+	width: 250px;
+}
+
+input[type="submit"] {
+	width: auto;
+}
+
+.nameColumn {
+	width: 250px;
+}

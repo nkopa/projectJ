@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+	<h:outputStylesheet library="css" name="list.css" target="body" />
+	
+		<h2>#{msg.calendarTitle} #{userBean.loggedUser}</h2>
+		
+		<p>
+		<h:form>
+			<h:commandLink action="addEvent">
+				<h:outputText value="#{msg.calendarAddEvent}" />
+			</h:commandLink>
+		</h:form>
+		</p>
+		
+		<p>
+		<h:form>
+			<h:inputText id="searchField" value="#{calendarBean.searchField}"/>
+			<h:commandButton value="#{msg.calendarByName}" action="#{calendarBean.findByName()}"/>
+			<h:commandButton value="#{msg.calendarByPlace}" action="#{calendarBean.findByPlace()}"/>
+			<h:commandButton value="#{msg.calendarByNormal}" action="#{calendarBean.findByNormal()}"/>
+		</h:form>
+		</p>
+		
+		<h:form>
+		<h:dataTable value="#{calendarBean.events}" var="item" columnClasses="dateColumn,nameColumn,detailsColumn,deleteColumn">
+        <f:facet name="header"></f:facet>
+      
+        <h:column>
+          	<f:facet name="header">#{msg.calendarDate}</f:facet>
+	        <h:outputText value="#{item.date}">
+				<f:convertDateTime type="date" pattern="d-MM-yyyy"/>
+			</h:outputText>
+        </h:column>
+      
+        <h:column>
+          	<f:facet name="header">#{msg.calendarName}</f:facet>
+          	<h:outputText value="#{item.name}"/>
+        </h:column>
+      
+      	<h:column>
+          	<f:facet name="header"></f:facet>
+          	<h:commandLink value="#{msg.calendarShowEvent}" action="#{calendarBean.showEvent}"/>
+        </h:column>
+      
+        <h:column>
+          	<f:facet name="header"></f:facet>
+          	<h:commandLink value="#{msg.calendarDeleteEvent}" action="#{calendarBean.deleteEvent}"/>
+        </h:column>
+      
+       </h:dataTable>
+       </h:form>
+   	</ui:define>
+</ui:composition>
