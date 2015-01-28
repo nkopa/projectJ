@@ -2,23 +2,32 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
-  <div>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+	<div>
 	<h:form>
-	  <ul class="menu">
-		<li>
-		  <h:commandLink action="home?faces-redirect=true">
-			<h:outputText value="#{msg.homeOption}" />
-		  </h:commandLink>
-		</li>
-		<li>
-		  <h:commandLink action="#{userBean.canSeeCalendar()}">
-			<h:outputText value="#{msg.calendarOption}" />
-		  </h:commandLink>
-		</li>
-		<li id="LAST">
-		</li>
-	</ul>
-   </h:form>
-  </div>
+		<rich:toolbar height="40px">
+			<rich:dropDownMenu>
+				<f:facet name="label">
+				<h:panelGrid>
+					<h:commandLink action="home?faces-redirect=true">
+						<h:outputText value="#{msg.homeOption}" />
+					</h:commandLink>
+				</h:panelGrid>
+				</f:facet>
+			</rich:dropDownMenu>
+			
+			<rich:dropDownMenu>
+				<f:facet name="label">
+				<h:panelGrid>
+					<h:outputText value="#{msg.calendarOptionLabel}" />
+				</h:panelGrid>
+				</f:facet>
+				<rich:menuItem label="#{msg.calendarOption}" action="#{userBean.canSeeCalendar()}"></rich:menuItem>
+				<rich:menuItem label="#{msg.addEventOption}" action="#{userBean.canAddEvent()}"></rich:menuItem>
+			</rich:dropDownMenu>
+		</rich:toolbar>
+	</h:form>
+	</div>
 </ui:composition>

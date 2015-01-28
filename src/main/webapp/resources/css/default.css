@@ -44,7 +44,7 @@ a:hover {color: #9999ff;}
 	border-top: 1px solid #9999ff;
 }
 
-#MENU a {
+#MENU a, #MENU td {
 	font-size: 18px;
 	font-family: "Georgia", "Times New Roman";
 }

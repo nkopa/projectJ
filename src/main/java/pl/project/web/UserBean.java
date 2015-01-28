@@ -88,6 +88,11 @@ public class UserBean implements Serializable{
 		return "false";
 	}
 	
+	public String canAddEvent(){
+		if(isLogged()) return "true";
+		return "false";
+	}
+	
 	// walidacja
 	public void uniqueLoginCheck(FacesContext context, UIComponent component, Object value){
 		String login = (String) value;
