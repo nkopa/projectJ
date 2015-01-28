@@ -5,55 +5,13 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:mt="http://project.pl"
 	template="/templates/default.xhtml">
 	<ui:define name="content">
 	<h:outputStylesheet library="css" name="event.css" target="body" />
 	
 		<h2>#{msg.editEventTitle}</h2>
 		
-		<h:form>
-			<fieldset>
-				<legend>#{msg.editEventLegend}</legend>
-				
-				<h:inputHidden id="id" value="#{calendarBean.eventToShow.id}" />
-				
-				<div class="row">
-					<label for="date"><h:outputText value="#{msg.formEventDate} " /></label>
-					<rich:calendar value="#{calendarBean.eventToShow.date}" id="date" locale="#{msg.localeData}"
-				        popup="true" datePattern="d.MM.yyyy"
-				        showApplyButton="true" cellWidth="24px" cellHeight="22px" style="width:200px"
-				      	disabled="false" validator="#{calendarBean.dateCheck}" required="#{true}">
-					    <f:ajax execute="@this" render="errors"/>
-			        </rich:calendar>
-				</div>
-			
-				<div class="row">
-					<label for="name"><h:outputText value="#{msg.formEventName} " /></label>
-					<h:inputText id="name" value="#{calendarBean.eventToShow.name}" required="#{true}">
-						<f:ajax execute="@this" render="errors"/>
-					</h:inputText>
-				</div>
-			
-				<div class="row">
-					<label for="place"><h:outputText value="#{msg.formEventPlace} " /></label>
-					<h:inputText id="place" value="#{calendarBean.eventToShow.place}" required="#{true}">
-						<f:ajax execute="@this" render="errors"/>
-					</h:inputText>
-				</div>
-			
-				<div class="row">
-					<label for="description"><h:outputText value="#{msg.formEventDescription} " /></label>
-					<h:inputTextarea id="description" value="#{calendarBean.eventToShow.description}" >
-						<f:ajax execute="@this" render="errors"/>
-					</h:inputTextarea>
-				</div>
-				
-				<h:commandButton value="#{msg.editEventSubmit}" action="#{calendarBean.editEvent}" />
-			</fieldset>
-			
-			<h:panelGrid id="errors">
-				<h:messages showDetail="#{true}" showSummary="#{false}" />
-			</h:panelGrid>
-        </h:form>
+		<mt:eventForm legend="#{msg.editEventLegend}" event="#{calendarBean.eventToShow}" submit="#{msg.editEventSubmit}" action="editEvent"/>
    	</ui:define>
 </ui:composition>

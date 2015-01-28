@@ -61,4 +61,43 @@
 	      <to-view-id>/register.jsf</to-view-id>
 	   </navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/addEvent.xhtml</from-view-id>
+		<navigation-case>
+	      <from-action>#{userBean.canSeeCalendar()}</from-action>
+	      <from-outcome>true</from-outcome>
+	      <to-view-id>/calendar.jsf?faces-redirect=true</to-view-id>
+	   </navigation-case>
+	   <navigation-case>
+	      <from-action>#{userBean.canSeeCalendar()}</from-action>
+	      <from-outcome>false</from-outcome>
+	      <to-view-id>/home.jsf?faces-redirect=true</to-view-id>
+	   </navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editEvent.xhtml</from-view-id>
+		<navigation-case>
+	      <from-action>#{userBean.canSeeCalendar()}</from-action>
+	      <from-outcome>true</from-outcome>
+	      <to-view-id>/calendar.jsf?faces-redirect=true</to-view-id>
+	   </navigation-case>
+	   <navigation-case>
+	      <from-action>#{userBean.canSeeCalendar()}</from-action>
+	      <from-outcome>false</from-outcome>
+	      <to-view-id>/home.jsf?faces-redirect=true</to-view-id>
+	   </navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/event.xhtml</from-view-id>
+		<navigation-case>
+	      <from-action>#{userBean.canSeeCalendar()}</from-action>
+	      <from-outcome>true</from-outcome>
+	      <to-view-id>/calendar.jsf?faces-redirect=true</to-view-id>
+	   </navigation-case>
+	   <navigation-case>
+	      <from-action>#{userBean.canSeeCalendar()}</from-action>
+	      <from-outcome>false</from-outcome>
+	      <to-view-id>/home.jsf?faces-redirect=true</to-view-id>
+	   </navigation-case>
+	</navigation-rule>
 </faces-config>
